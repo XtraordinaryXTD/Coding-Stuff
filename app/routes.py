@@ -1,31 +1,25 @@
 from app import app, db
 from flask import render_template, flash, redirect, url_for, request
-from app.forms import LoginForum, RegistrationForm, EditProfileForm, EmptyForm
+from app.forms import LoginForum, RegistrationForm, EditProfileForm, EmptyForm, PostForm
 from flask_login import current_user, login_user, logout_user, login_required
-from app.models import User
+from app.models import User, Post
 from werkzeug.urls import url_parse
 from datetime import datetime
 
 
-@app.route('/')
-@app.route('/index')
+@app.route('/', methods=['GET', 'POST'])
+@app.route('/index', methods=['GET', 'POST'])
 @login_required
-def index():    
-    posts = [
-        {
-            'Author' : {'username': 'Gwyn'},
-            'body' : 'Sweet dreams dear prince'
-        },
-        {
-            'Author' : {'username': 'Varok'},
-            'body' : 'Honor, young heroes... no matter how dire the battle... never forsake it.'
-        },
-        {
-            'Author' : {'username': 'Murlock'},
-            'body' : 'Mglrmglmglmgl!'
-        },
-    ]
-    return render_template('index.html', title="Home", posts=posts)
+def index():
+    form = PostForm()
+    if form.validate_on_submit():
+        post = Post(body=form.post.data, author = current_user)
+        db.session.add(post)
+        db.session.commit()
+        flash('Your post is successfully uploaded')
+        return redirect(url_for('index'))
+    posts = current_user.followed_posts().all()
+    return render_template('index.html', title='Home Page', form=form, posts=posts)
 
 
 @app.route('/feed')
@@ -143,3 +137,8 @@ def unfollow(username):
         return redirect(url_for('user', username=username))
     else:
         return redirect(url_for('index'))
+
+
+
+
+

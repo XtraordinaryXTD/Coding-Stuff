@@ -48,3 +48,12 @@ class EditProfileForm(FlaskForm):
 class EmptyForm(FlaskForm):
     submit = SubmitField('Submit')
 
+
+class PostForm(FlaskForm):
+    post = TextAreaField('What is on your mind', validators=[
+        DataRequired(), Length(min=1, max=420)])
+    submit = SubmitField('Submit')
+
+
+
+
