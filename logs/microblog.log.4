@@ -1,57 +1,30 @@
-2023-01-16 14:08:19,814 INFO: Microblog Start-up [in C:\Program Files\Coding Stuff\Flask\app\__init__.py:42]
-2023-01-16 14:08:29,782 ERROR: Exception on /edit_profile [POST] [in C:\Program Files\Coding Stuff\Flask\venv\lib\site-packages\flask\app.py:1741]
+2023-01-23 11:17:58,960 ERROR: Exception on /Sano [GET] [in C:\Program Files\Coding Stuff\Flask\venv\lib\site-packages\flask\app.py:1741]
 Traceback (most recent call last):
-  File "C:\Program Files\Coding Stuff\Flask\venv\lib\site-packages\flask\app.py", line 2525, in wsgi_app
-    response = self.full_dispatch_request()
-  File "C:\Program Files\Coding Stuff\Flask\venv\lib\site-packages\flask\app.py", line 1823, in full_dispatch_request
-    return self.finalize_request(rv)
-  File "C:\Program Files\Coding Stuff\Flask\venv\lib\site-packages\flask\app.py", line 1842, in finalize_request
-    response = self.make_response(rv)
-  File "C:\Program Files\Coding Stuff\Flask\venv\lib\site-packages\flask\app.py", line 2134, in make_response
-    raise TypeError(
-TypeError: The view function for 'edit_profile' did not return a valid response. The function either returned None or ended without a return statement.
-2023-01-16 14:13:01,550 INFO: Microblog Start-up [in C:\Program Files\Coding Stuff\Flask\app\__init__.py:42]
-2023-01-16 14:13:19,466 ERROR: Exception on /edit_profile [POST] [in C:\Program Files\Coding Stuff\Flask\venv\lib\site-packages\flask\app.py:1741]
-Traceback (most recent call last):
-  File "C:\Program Files\Coding Stuff\Flask\venv\lib\site-packages\flask\app.py", line 2525, in wsgi_app
-    response = self.full_dispatch_request()
-  File "C:\Program Files\Coding Stuff\Flask\venv\lib\site-packages\flask\app.py", line 1823, in full_dispatch_request
-    return self.finalize_request(rv)
-  File "C:\Program Files\Coding Stuff\Flask\venv\lib\site-packages\flask\app.py", line 1842, in finalize_request
-    response = self.make_response(rv)
-  File "C:\Program Files\Coding Stuff\Flask\venv\lib\site-packages\flask\app.py", line 2134, in make_response
-    raise TypeError(
-TypeError: The view function for 'edit_profile' did not return a valid response. The function either returned None or ended without a return statement.
-2023-01-18 12:34:44,689 INFO: Microblog Start-up [in C:\Program Files\Coding Stuff\Flask\app\__init__.py:42]
-2023-01-18 12:35:57,507 INFO: Microblog Start-up [in C:\Program Files\Coding Stuff\Flask\app\__init__.py:42]
-2023-01-18 12:36:54,301 INFO: Microblog Start-up [in C:\Program Files\Coding Stuff\Flask\app\__init__.py:42]
-2023-01-18 14:51:23,166 INFO: Microblog Start-up [in C:\Program Files\Coding Stuff\Flask\app\__init__.py:42]
-2023-01-18 14:56:07,757 INFO: Microblog Start-up [in c:\Program Files\Coding Stuff\Flask\app\__init__.py:42]
-2023-01-18 14:57:57,748 INFO: Microblog Start-up [in c:\Program Files\Coding Stuff\Flask\app\__init__.py:42]
-2023-01-18 14:58:14,926 INFO: Microblog Start-up [in c:\Program Files\Coding Stuff\Flask\app\__init__.py:42]
-2023-01-18 14:59:08,723 INFO: Microblog Start-up [in c:\Program Files\Coding Stuff\Flask\app\__init__.py:42]
-2023-01-18 15:02:23,463 INFO: Microblog Start-up [in c:\Program Files\Coding Stuff\Flask\app\__init__.py:42]
-2023-01-18 15:02:49,228 INFO: Microblog Start-up [in c:\Program Files\Coding Stuff\Flask\app\__init__.py:42]
-2023-01-18 15:04:05,720 INFO: Microblog Start-up [in c:\Program Files\Coding Stuff\Flask\app\__init__.py:42]
-2023-01-18 15:05:16,170 INFO: Microblog Start-up [in c:\Program Files\Coding Stuff\Flask\app\__init__.py:42]
-2023-01-18 15:07:32,967 INFO: Microblog Start-up [in c:\Program Files\Coding Stuff\Flask\app\__init__.py:42]
-2023-01-18 15:10:57,767 INFO: Microblog Start-up [in c:\Program Files\Coding Stuff\Flask\app\__init__.py:42]
-2023-01-18 15:11:44,384 INFO: Microblog Start-up [in c:\Program Files\Coding Stuff\Flask\app\__init__.py:42]
-2023-01-18 15:36:49,135 INFO: Microblog Start-up [in C:\Program Files\Coding Stuff\Flask\app\__init__.py:42]
-2023-01-18 15:39:00,841 ERROR: Exception on /user/Sano [GET] [in C:\Program Files\Coding Stuff\Flask\venv\lib\site-packages\flask\app.py:1741]
+  File "C:\Program Files\Coding Stuff\Flask\venv\lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Program Files\Coding Stuff\Flask\venv\lib\site-packages\flask\app.py", line 1785, in dispatch_request
+    self.raise_routing_exception(req)
+  File "C:\Program Files\Coding Stuff\Flask\venv\lib\site-packages\flask\app.py", line 1767, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+  File "C:\Program Files\Coding Stuff\Flask\venv\lib\site-packages\flask\ctx.py", line 351, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "C:\Program Files\Coding Stuff\Flask\venv\lib\site-packages\werkzeug\routing\map.py", line 624, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+During handling of the above exception, another exception occurred:
+
 Traceback (most recent call last):
   File "C:\Program Files\Coding Stuff\Flask\venv\lib\site-packages\flask\app.py", line 2525, in wsgi_app
     response = self.full_dispatch_request()
   File "C:\Program Files\Coding Stuff\Flask\venv\lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
     rv = self.handle_user_exception(e)
-  File "C:\Program Files\Coding Stuff\Flask\venv\lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "C:\Program Files\Coding Stuff\Flask\venv\lib\site-packages\flask\app.py", line 1796, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
-  File "C:\Program Files\Coding Stuff\Flask\venv\lib\site-packages\flask_login\utils.py", line 290, in decorated_view
-    return current_app.ensure_sync(func)(*args, **kwargs)
-  File "C:\Program Files\Coding Stuff\Flask\app\routes.py", line 82, in user
-    return render_template('user.html', user=user, posts=posts)
+  File "C:\Program Files\Coding Stuff\Flask\venv\lib\site-packages\flask\app.py", line 1666, in handle_user_exception
+    return self.handle_http_exception(e)
+  File "C:\Program Files\Coding Stuff\Flask\venv\lib\site-packages\flask\app.py", line 1606, in handle_http_exception
+    return self.ensure_sync(handler)(e)
+  File "C:\Program Files\Coding Stuff\Flask\app\errors.py", line 6, in not_found_error
+    return render_template('404.html'), 404
   File "C:\Program Files\Coding Stuff\Flask\venv\lib\site-packages\flask\templating.py", line 147, in render_template
     return _render(app, template, context)
   File "C:\Program Files\Coding Stuff\Flask\venv\lib\site-packages\flask\templating.py", line 130, in _render
@@ -60,30 +33,40 @@ Traceback (most recent call last):
     self.environment.handle_exception()
   File "C:\Program Files\Coding Stuff\Flask\venv\lib\site-packages\jinja2\environment.py", line 936, in handle_exception
     raise rewrite_traceback_stack(source=source)
-  File "C:\Program Files\Coding Stuff\Flask\app\templates\user.html", line 1, in top-level template code
+  File "C:\Program Files\Coding Stuff\Flask\app\templates\404.html", line 1, in top-level template code
     {% extends "base.html" %}
-  File "C:\Program Files\Coding Stuff\Flask\app\templates\base.html", line 32, in top-level template code
-    {% block content %}{% endblock %}
-  File "C:\Program Files\Coding Stuff\Flask\app\templates\user.html", line 17, in block 'content'
-    {{ form.hidden_tag() }}
-  File "C:\Program Files\Coding Stuff\Flask\venv\lib\site-packages\jinja2\environment.py", line 485, in getattr
-    return getattr(obj, attribute)
-jinja2.exceptions.UndefinedError: 'form' is undefined
-2023-01-18 15:39:54,281 INFO: Microblog Start-up [in C:\Program Files\Coding Stuff\Flask\app\__init__.py:42]
-2023-01-18 15:40:10,210 ERROR: Exception on /user/Sano [GET] [in C:\Program Files\Coding Stuff\Flask\venv\lib\site-packages\flask\app.py:1741]
+  File "C:\Program Files\Coding Stuff\Flask\venv\lib\site-packages\jinja2\environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Program Files\Coding Stuff\Flask\app\templates\base.html", line 16, in template
+    <a href="{{ url_for('login') }}">Login</a>
+jinja2.exceptions.TemplateSyntaxError: expected token ',', got 'login'
+2023-01-23 11:17:58,984 ERROR: Exception on /favicon.ico [GET] [in C:\Program Files\Coding Stuff\Flask\venv\lib\site-packages\flask\app.py:1741]
+Traceback (most recent call last):
+  File "C:\Program Files\Coding Stuff\Flask\venv\lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Program Files\Coding Stuff\Flask\venv\lib\site-packages\flask\app.py", line 1785, in dispatch_request
+    self.raise_routing_exception(req)
+  File "C:\Program Files\Coding Stuff\Flask\venv\lib\site-packages\flask\app.py", line 1767, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+  File "C:\Program Files\Coding Stuff\Flask\venv\lib\site-packages\flask\ctx.py", line 351, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "C:\Program Files\Coding Stuff\Flask\venv\lib\site-packages\werkzeug\routing\map.py", line 624, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+During handling of the above exception, another exception occurred:
+
 Traceback (most recent call last):
   File "C:\Program Files\Coding Stuff\Flask\venv\lib\site-packages\flask\app.py", line 2525, in wsgi_app
     response = self.full_dispatch_request()
   File "C:\Program Files\Coding Stuff\Flask\venv\lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
     rv = self.handle_user_exception(e)
-  File "C:\Program Files\Coding Stuff\Flask\venv\lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "C:\Program Files\Coding Stuff\Flask\venv\lib\site-packages\flask\app.py", line 1796, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
-  File "C:\Program Files\Coding Stuff\Flask\venv\lib\site-packages\flask_login\utils.py", line 290, in decorated_view
-    return current_app.ensure_sync(func)(*args, **kwargs)
-  File "C:\Program Files\Coding Stuff\Flask\app\routes.py", line 82, in user
-    return render_template('user.html', user=user, posts=posts)
+  File "C:\Program Files\Coding Stuff\Flask\venv\lib\site-packages\flask\app.py", line 1666, in handle_user_exception
+    return self.handle_http_exception(e)
+  File "C:\Program Files\Coding Stuff\Flask\venv\lib\site-packages\flask\app.py", line 1606, in handle_http_exception
+    return self.ensure_sync(handler)(e)
+  File "C:\Program Files\Coding Stuff\Flask\app\errors.py", line 6, in not_found_error
+    return render_template('404.html'), 404
   File "C:\Program Files\Coding Stuff\Flask\venv\lib\site-packages\flask\templating.py", line 147, in render_template
     return _render(app, template, context)
   File "C:\Program Files\Coding Stuff\Flask\venv\lib\site-packages\flask\templating.py", line 130, in _render
@@ -92,13 +75,52 @@ Traceback (most recent call last):
     self.environment.handle_exception()
   File "C:\Program Files\Coding Stuff\Flask\venv\lib\site-packages\jinja2\environment.py", line 936, in handle_exception
     raise rewrite_traceback_stack(source=source)
-  File "C:\Program Files\Coding Stuff\Flask\app\templates\user.html", line 2, in top-level template code
+  File "C:\Program Files\Coding Stuff\Flask\app\templates\404.html", line 1, in top-level template code
     {% extends "base.html" %}
-  File "C:\Program Files\Coding Stuff\Flask\app\templates\base.html", line 32, in top-level template code
-    {% block content %}{% endblock %}
-  File "C:\Program Files\Coding Stuff\Flask\app\templates\user.html", line 18, in block 'content'
-    {{ form.hidden_tag() }}
-  File "C:\Program Files\Coding Stuff\Flask\venv\lib\site-packages\jinja2\environment.py", line 485, in getattr
-    return getattr(obj, attribute)
-jinja2.exceptions.UndefinedError: 'form' is undefined
-2023-01-20 11:13:25,597 INFO: Microblog Start-up [in C:\Program Files\Coding Stuff\Flask\app\__init__.py:42]
+  File "C:\Program Files\Coding Stuff\Flask\venv\lib\site-packages\jinja2\environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Program Files\Coding Stuff\Flask\app\templates\base.html", line 16, in template
+    <a href="{{ url_for('login') }}">Login</a>
+jinja2.exceptions.TemplateSyntaxError: expected token ',', got 'login'
+2023-01-23 11:18:07,469 ERROR: Exception on /favicon.ico [GET] [in C:\Program Files\Coding Stuff\Flask\venv\lib\site-packages\flask\app.py:1741]
+Traceback (most recent call last):
+  File "C:\Program Files\Coding Stuff\Flask\venv\lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Program Files\Coding Stuff\Flask\venv\lib\site-packages\flask\app.py", line 1785, in dispatch_request
+    self.raise_routing_exception(req)
+  File "C:\Program Files\Coding Stuff\Flask\venv\lib\site-packages\flask\app.py", line 1767, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+  File "C:\Program Files\Coding Stuff\Flask\venv\lib\site-packages\flask\ctx.py", line 351, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "C:\Program Files\Coding Stuff\Flask\venv\lib\site-packages\werkzeug\routing\map.py", line 624, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Coding Stuff\Flask\venv\lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Program Files\Coding Stuff\Flask\venv\lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Program Files\Coding Stuff\Flask\venv\lib\site-packages\flask\app.py", line 1666, in handle_user_exception
+    return self.handle_http_exception(e)
+  File "C:\Program Files\Coding Stuff\Flask\venv\lib\site-packages\flask\app.py", line 1606, in handle_http_exception
+    return self.ensure_sync(handler)(e)
+  File "C:\Program Files\Coding Stuff\Flask\app\errors.py", line 6, in not_found_error
+    return render_template('404.html'), 404
+  File "C:\Program Files\Coding Stuff\Flask\venv\lib\site-packages\flask\templating.py", line 147, in render_template
+    return _render(app, template, context)
+  File "C:\Program Files\Coding Stuff\Flask\venv\lib\site-packages\flask\templating.py", line 130, in _render
+    rv = template.render(context)
+  File "C:\Program Files\Coding Stuff\Flask\venv\lib\site-packages\jinja2\environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "C:\Program Files\Coding Stuff\Flask\venv\lib\site-packages\jinja2\environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Program Files\Coding Stuff\Flask\app\templates\404.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "C:\Program Files\Coding Stuff\Flask\venv\lib\site-packages\jinja2\environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Program Files\Coding Stuff\Flask\app\templates\base.html", line 16, in template
+    <a href="{{ url_for('login') }}">Login</a>
+jinja2.exceptions.TemplateSyntaxError: expected token ',', got 'login'
