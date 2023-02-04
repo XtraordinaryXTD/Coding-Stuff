@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, BooleanField, SubmitField, TextAreaField
-from wtforms.validators import DataRequired, ValidationError, Email, EqualTo, Length
+from wtforms import StringField, PasswordField, BooleanField, SubmitField, TextAreaField, FileField
+from wtforms.validators import DataRequired, ValidationError, Email, EqualTo, Length, InputRequired
 from app.models import User
 
 class LoginForum(FlaskForm):
@@ -66,3 +66,6 @@ class ResetPasswordForm(FlaskForm):
     submit = SubmitField('Request Password Reset')
 
 
+class UploadFileForm(FlaskForm):
+    file = FileField('File', validators=[InputRequired()])
+    submit = SubmitField("Upload File")

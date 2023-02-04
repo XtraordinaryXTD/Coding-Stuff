@@ -1,11 +1,14 @@
 from app import app, db
 from flask import render_template, flash, redirect, url_for, request
-from app.forms import LoginForum, RegistrationForm, EditProfileForm, EmptyForm, PostForm, ResetPasswordRequest, ResetPasswordForm
+from app.forms import LoginForum, RegistrationForm, EditProfileForm, EmptyForm, PostForm, ResetPasswordRequest, ResetPasswordForm, UploadFileForm
 from app.email import send_password_reset_email
 from flask_login import current_user, login_user, logout_user, login_required
 from app.models import User, Post
 from werkzeug.urls import url_parse
 from datetime import datetime
+import requests
+import os
+
 
 
 
@@ -45,9 +48,15 @@ def explore():
                            next_url=next_url, prev_url = prev_url)
 
 
-@app.route('/feed')
+@app.route('/feed',methods=['GET', 'POST'])
 def feed():
-    return "ti si feeder!" # da se napravi template
+    form = UploadFileForm()
+    if form.validate_on_submit():
+        file = form.file.data
+        file.save(os.path.join(os.path.abspath(os.path.dirname(__file__)),app.config['UPLOAD_FOLDER']))
+        return "File has been uploaded! "
+    return render_template('upload_form.html', title='Feed', form=form)
+
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -197,5 +206,29 @@ def reset_password(token):
     return render_template('reset_password.html', form=form)
 
 
+@app.route("/", methods=["GET", "POST"])
+def upload_avatar():
+    if request.method == "POST":
+        avatar = request.files["avatar"]
+        # Do something with the uploaded file
+        return redirect(url_for("index"))
+    return avatar
 
 
+
+@app.route("/upload_image", methods=["POST"])
+def upload_image():
+    image = request.files.get("image")
+    image_data = image.read()
+
+    # Use the 'requests' library to make a POST request to the web form endpoint
+    response = requests.post("http://example.com/form_endpoint", data={"image": image_data})
+
+    # Check the response status code to make sure the image was successfully uploaded
+    if response.status_code == 200:
+        return "Image uploaded successfully!"
+    else:
+        return "Failed to upload image. Response code: {}".format(response.status_code)
+
+if __name__ == "__main__":
+    app.run()
