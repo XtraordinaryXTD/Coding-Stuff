@@ -15,7 +15,10 @@ class Config(object):
     ADMINS = ['Flask_Mail@Address.com']
     POSTS_PER_PAGE = 15
     UPLOAD_FOLDER = os.environ.get('UPLOAD_FOLDER')
+    LANGUAGES = ['en', 'es']
     
-        
+
+
+
 """The server configuration is done via terminal using the set command followed by naming 
 SERVER,PORT,USERNAME and PASSWORD along with recepients and the sender"""

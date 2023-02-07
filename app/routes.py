@@ -1,10 +1,11 @@
 from app import app, db
-from flask import render_template, flash, redirect, url_for, request
+from flask import render_template, flash, redirect, url_for, request, g
 from app.forms import LoginForum, RegistrationForm, EditProfileForm, EmptyForm, PostForm, ResetPasswordRequest, ResetPasswordForm, UploadFileForm
 from app.email import send_password_reset_email
 from flask_login import current_user, login_user, logout_user, login_required
 from app.models import User, Post
 from werkzeug.urls import url_parse
+from flask_babel import _, get_locale
 from datetime import datetime
 import requests
 import os
@@ -117,6 +118,7 @@ def before_request():
     if current_user.is_authenticated:
         current_user.last_seen = datetime.utcnow()
         db.session.commit()
+        g.locale = str(get_locale())
 
 
 @app.route('/edit_profile', methods=['GET', 'POST'])
@@ -184,7 +186,7 @@ def reset_password_request():
         user = User.query.filter_by(email=form.email.data).first()
         if user:
             send_password_reset_email(user)
-        flash('Check your email for further instructions')
+        flash(_('Check your email for further instructions'))
         return redirect(url_for('login'))
     return render_template('reset_password_request.html',
                            title='Reset Password', form=form)
@@ -206,6 +208,8 @@ def reset_password(token):
     return render_template('reset_password.html', form=form)
 
 
+
+###
 @app.route("/", methods=["GET", "POST"])
 def upload_avatar():
     if request.method == "POST":

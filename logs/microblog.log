@@ -21,3 +21,53 @@ TypeError: join() argument must be str, bytes, or os.PathLike object, not 'NoneT
 2023-02-04 13:54:52,451 INFO: Microblog Start-up [in C:\Program Files\Coding Stuff\Flask\app\__init__.py:52]
 2023-02-04 13:55:45,592 INFO: Microblog Start-up [in C:\Program Files\Coding Stuff\Flask\app\__init__.py:52]
 2023-02-04 14:07:08,535 INFO: Microblog Start-up [in C:\Program Files\Coding Stuff\Flask\app\__init__.py:52]
+2023-02-07 11:15:20,587 INFO: Microblog Start-up [in C:\Program Files\Coding Stuff\Flask\app\__init__.py:54]
+2023-02-07 11:58:25,202 INFO: Microblog Start-up [in C:\Program Files\Coding Stuff\Flask\app\__init__.py:54]
+2023-02-07 11:58:28,402 ERROR: Exception on /index [GET] [in C:\Program Files\Coding Stuff\Flask\venv\lib\site-packages\flask\app.py:1741]
+Traceback (most recent call last):
+  File "C:\Program Files\Coding Stuff\Flask\venv\lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Program Files\Coding Stuff\Flask\venv\lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Program Files\Coding Stuff\Flask\venv\lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Program Files\Coding Stuff\Flask\venv\lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "C:\Program Files\Coding Stuff\Flask\venv\lib\site-packages\flask_login\utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+  File "C:\Program Files\Coding Stuff\Flask\app\routes.py", line 34, in index
+    return render_template('index.html', title='Home', form=form,
+  File "C:\Program Files\Coding Stuff\Flask\venv\lib\site-packages\flask\templating.py", line 147, in render_template
+    return _render(app, template, context)
+  File "C:\Program Files\Coding Stuff\Flask\venv\lib\site-packages\flask\templating.py", line 130, in _render
+    rv = template.render(context)
+  File "C:\Program Files\Coding Stuff\Flask\venv\lib\site-packages\jinja2\environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "C:\Program Files\Coding Stuff\Flask\venv\lib\site-packages\jinja2\environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Program Files\Coding Stuff\Flask\app\templates\index.html", line 2, in top-level template code
+    {% import 'bootstrap/wtf.html' as wtf %}
+  File "C:\Program Files\Coding Stuff\Flask\app\templates\base.html", line 1, in top-level template code
+    {% extends 'bootstrap/base.html' %}
+  File "C:\Program Files\Coding Stuff\Flask\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 1, in top-level template code
+    {% block doc -%}
+  File "C:\Program Files\Coding Stuff\Flask\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 4, in block 'doc'
+    {%- block html %}
+  File "C:\Program Files\Coding Stuff\Flask\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block 'html'
+    {% block body -%}
+  File "C:\Program Files\Coding Stuff\Flask\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 23, in block 'body'
+    {% block content -%}
+  File "C:\Program Files\Coding Stuff\Flask\app\templates\base.html", line 49, in block 'content'
+    {% block app_content %}{% endblock %}
+  File "C:\Program Files\Coding Stuff\Flask\app\templates\index.html", line 11, in block 'app_content'
+    {% include '_post.html' %}
+  File "C:\Program Files\Coding Stuff\Flask\venv\lib\site-packages\jinja2\environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Program Files\Coding Stuff\Flask\app\templates\_post.html", line 14, in template
+    {{ _('%(username)s said %(when)s', username=user_link,when=moment(post.timestamp).fromNow() }}
+jinja2.exceptions.TemplateSyntaxError: unexpected '}', expected ')'
+2023-02-07 12:03:34,628 INFO: Microblog Start-up [in C:\Program Files\Coding Stuff\Flask\app\__init__.py:54]
+2023-02-07 12:15:47,001 INFO: Microblog Start-up [in C:\Program Files\Coding Stuff\Flask\app\__init__.py:54]
+2023-02-07 12:31:54,407 INFO: Microblog Start-up [in C:\Program Files\Coding Stuff\Flask\app\__init__.py:54]
+2023-02-07 12:33:13,622 INFO: Microblog Start-up [in C:\Program Files\Coding Stuff\Flask\app\__init__.py:54]
+2023-02-07 12:33:39,769 INFO: Microblog Start-up [in C:\Program Files\Coding Stuff\Flask\app\__init__.py:54]
