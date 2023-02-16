@@ -1,11 +1,8 @@
 from __future__ import with_statement
-
-import logging
-from logging.config import fileConfig
-
-from flask import current_app
-
 from alembic import context
+from sqlalchemy import engine_from_config, pool
+from logging.config import fileConfig
+import logging
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
@@ -20,22 +17,15 @@ logger = logging.getLogger('alembic.env')
 # for 'autogenerate' support
 # from myapp import mymodel
 # target_metadata = mymodel.Base.metadata
-config.set_main_option(
-    'sqlalchemy.url',
-    str(current_app.extensions['migrate'].db.get_engine().url).replace(
-        '%', '%%'))
-target_db = current_app.extensions['migrate'].db
+from flask import current_app
+config.set_main_option('sqlalchemy.url',
+                       current_app.config.get('SQLALCHEMY_DATABASE_URI'))
+target_metadata = current_app.extensions['migrate'].db.metadata
 
 # other values from the config, defined by the needs of env.py,
 # can be acquired:
 # my_important_option = config.get_main_option("my_important_option")
 # ... etc.
-
-
-def get_metadata():
-    if hasattr(target_db, 'metadatas'):
-        return target_db.metadatas[None]
-    return target_db.metadata
 
 
 def run_migrations_offline():
@@ -51,9 +41,7 @@ def run_migrations_offline():
 
     """
     url = config.get_main_option("sqlalchemy.url")
-    context.configure(
-        url=url, target_metadata=get_metadata(), literal_binds=True
-    )
+    context.configure(url=url)
 
     with context.begin_transaction():
         context.run_migrations()
@@ -77,19 +65,21 @@ def run_migrations_online():
                 directives[:] = []
                 logger.info('No changes in schema detected.')
 
-    connectable = current_app.extensions['migrate'].db.get_engine()
+    engine = engine_from_config(config.get_section(config.config_ini_section),
+                                prefix='sqlalchemy.',
+                                poolclass=pool.NullPool)
 
-    with connectable.connect() as connection:
-        context.configure(
-            connection=connection,
-            target_metadata=get_metadata(),
-            process_revision_directives=process_revision_directives,
-            **current_app.extensions['migrate'].configure_args
-        )
+    connection = engine.connect()
+    context.configure(connection=connection,
+                      target_metadata=target_metadata,
+                      process_revision_directives=process_revision_directives,
+                      **current_app.extensions['migrate'].configure_args)
 
+    try:
         with context.begin_transaction():
             context.run_migrations()
-
+    finally:
+        connection.close()
 
 if context.is_offline_mode():
     run_migrations_offline()

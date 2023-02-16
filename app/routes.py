@@ -224,30 +224,33 @@ def translate_text():
         request.form['dest_language'])})
 
 
+
+
+
 ###
-@app.route("/", methods=["GET", "POST"])
-def upload_avatar():
-    if request.method == "POST":
-        avatar = request.files["avatar"]
-        # Do something with the uploaded file
-        return redirect(url_for("index"))
-    return avatar
+# @app.route("/", methods=["GET", "POST"])
+# def upload_avatar():
+#     if request.method == "POST":
+#         avatar = request.files["avatar"]
+#         # Do something with the uploaded file
+#         return redirect(url_for("index"))
+#     return avatar
 
 
 
-@app.route("/upload_image", methods=["POST"])
-def upload_image():
-    image = request.files.get("image")
-    image_data = image.read()
+# @app.route("/upload_image", methods=["POST"])
+# def upload_image():
+#     image = request.files.get("image")
+#     image_data = image.read()
 
-    # Use the 'requests' library to make a POST request to the web form endpoint
-    response = requests.post("http://example.com/form_endpoint", data={"image": image_data})
+#     # Use the 'requests' library to make a POST request to the web form endpoint
+#     response = requests.post("http://example.com/form_endpoint", data={"image": image_data})
 
-    # Check the response status code to make sure the image was successfully uploaded
-    if response.status_code == 200:
-        return "Image uploaded successfully!"
-    else:
-        return "Failed to upload image. Response code: {}".format(response.status_code)
+#     # Check the response status code to make sure the image was successfully uploaded
+#     if response.status_code == 200:
+#         return "Image uploaded successfully!"
+#     else:
+#         return "Failed to upload image. Response code: {}".format(response.status_code)
 
-if __name__ == "__main__":
-    app.run()
+# if __name__ == "__main__":
+#     app.run()

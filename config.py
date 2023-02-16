@@ -1,5 +1,8 @@
 import os
+from dotenv import load_dotenv
+
 basedir = os.path.abspath(os.path.dirname(__file__))
+load_dotenv(os.path.join(basedir, '.env'))
 
 
 class Config(object):
@@ -12,13 +15,7 @@ class Config(object):
     MAIL_USE_TLS = os.environ.get('MAIL_USE_TLS') is not None
     MAIL_USERNAME = os.environ.get('MAIL_USERNAME')
     MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
-    ADMINS = ['Flask_Mail@Address.com']
-    POSTS_PER_PAGE = 15
-    UPLOAD_FOLDER = os.environ.get('UPLOAD_FOLDER')
+    ADMINS = ['your-email@example.com']
     LANGUAGES = ['en', 'es']
     MS_TRANSLATOR_KEY = os.environ.get('MS_TRANSLATOR_KEY')
-
-
-
-"""The server configuration is done via terminal using the set command followed by naming 
-SERVER,PORT,USERNAME and PASSWORD along with recepients and the sender"""
+    POSTS_PER_PAGE = 25
